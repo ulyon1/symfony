@@ -12,6 +12,7 @@
         "symfony/framework-bundle": "3.4.*",
         "symfony/monolog-bundle": "^3.3",
         "symfony/profiler-pack": "^1.0",
+        "symfony/security-bundle": "3.4.*",
         "symfony/twig-bundle": "3.4.*",
         "symfony/validator": "3.4.*",
         "symfony/yaml": "3.4.*"
