@@ -4,3 +4,16 @@
 homepage:
     path: /
     defaults: { _controller: 'Metinet\Controller\HomeController::index' }
+
+hello:
+    path: /hello/{name}
+    defaults:
+        _controller: 'Metinet\Controller\HomeController::hello'
+    requirements:
+        name: '[a-zA-Z]+'
+
+students_register:
+    path: /students/register
+    defaults:
+        _controller: 'Metinet\Controller\StudentsController::register'
+    methods: [GET,POST]
