@@ -17,12 +17,12 @@ class Kernel extends BaseKernel
 
     public function getCacheDir()
     {
-        return $this->getProjectDir().'/var/cache/'.$this->environment;
+        return $_ENV['CACHE_DIR'] . '/metinet-symfony-app/' . $this->environment;
     }
 
     public function getLogDir()
     {
-        return $this->getProjectDir().'/var/log';
+        return $_ENV['LOG_DIR'] . '/metinet-symfony-app/log';
     }
 
     public function registerBundles()
