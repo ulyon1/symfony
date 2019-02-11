@@ -23,8 +23,5 @@ class StudentRegistration
         );
 
         $this->studentRepository->save($student);
-
-        var_dump($student);
-        die();
     }
 }
