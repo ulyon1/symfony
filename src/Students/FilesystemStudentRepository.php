@@ -27,6 +27,6 @@ class FilesystemStudentRepository implements StudentRepository
             throw new StudentNotFound($id);
         }
 
-        return file_get_contents($filename);
+        return unserialize(file_get_contents($filename), [Student::class]);
     }
 }
