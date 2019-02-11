@@ -29,3 +29,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    Metinet\Students\FilesystemStudentRepository:
+        arguments: ['%kernel.project_dir%/var/']
+
+    Metinet\Students\StudentRepository: '@Metinet\Students\FilesystemStudentRepository'
