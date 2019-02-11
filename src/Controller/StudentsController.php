@@ -3,11 +3,8 @@
 namespace Metinet\Controller;
 
 use Metinet\Students\Forms\StudentRegistrationType;
-use Metinet\Students\InMemoryStudentRepository;
-use Metinet\Students\Student;
 use Metinet\Students\Forms\StudentRegistration as StudentRegistrationDto;
 use Metinet\Students\StudentRegistration;
-use Metinet\Students\StudentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
