@@ -44,7 +44,7 @@ final class Student
         return $this->email;
     }
 
-    public function getyearOfEntry(): string
+    public function getYearOfEntry(): string
     {
         return $this->yearOfEntry;
     }
