@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Edit blog post</h1>
+    {% if not is_granted('edit', blogPost) %}
+    <div class="alert alert-danger" role="alert">You cannot edit this blog post</div>
+    {% endif %}
+    <div class="col-md-5">
+    {{ form(editPostForm) }}
+    </div>
+{% endblock %}

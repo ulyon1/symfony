@@ -4,6 +4,8 @@ namespace Metinet\Controller;
 
 use Metinet\Blog\BlogPostRepository;
 use Metinet\Blog\BlogService;
+use Metinet\Blog\Forms\EditPost;
+use Metinet\Blog\Forms\EditPostType;
 use Metinet\Blog\Forms\NewPostType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,6 +33,28 @@ class BlogController extends Controller
         }
 
         return $this->render('blog/newPost.html.twig', ['newPostForm' => $form->createView()]);
+    }
+
+    public function editPost(string $postId, Request $request, BlogPostRepository $blogPostRepository, BlogService $blogService): Response
+    {
+        $blogPost = $blogPostRepository->get($postId);
+
+        $form = $this->createForm(
+            EditPostType::class,
+            new EditPost($blogPost->getId(), $blogPost->getTitle(), $blogPost->getBody()),
+            ['disabled' => !$this->isGranted('edit', $blogPost)]
+        );
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $editPost = $form->getData();
+            $blogService->edit($editPost);
+
+            return $this->redirectToRoute('blog_view_post', ['id' => $blogPost->getId(), 'slug' => $blogPost->getSlug()]);
+        }
+
+        return $this->render('blog/editPost.html.twig', ['editPostForm' => $form->createView(), 'blogPost' => $blogPost]);
     }
 
     public function viewPost(string $id, BlogPostRepository $blogPostRepository): Response

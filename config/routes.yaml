@@ -36,6 +36,12 @@ blog_new_post:
         _controller: 'Metinet\Controller\BlogController::newPost'
     methods: [GET,POST]
 
+blog_edit_post:
+    path: /blog/edit/{postId}
+    defaults:
+        _controller: 'Metinet\Controller\BlogController::editPost'
+    methods: [GET,POST]
+
 blog_view_post:
     path: /blog/{slug}/{id}
     defaults:
