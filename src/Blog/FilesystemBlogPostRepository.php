@@ -47,6 +47,10 @@ class FilesystemBlogPostRepository implements BlogPostRepository
 
     private function commit(): void
     {
+        uasort($this->posts, function (BlogPost $postA, BlogPost $postB){
+            return $postA->getPublicationDate() < $postB->getPublicationDate();
+        });
+
         file_put_contents($this->path, serialize($this->posts));
     }
 }

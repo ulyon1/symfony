@@ -11,7 +11,11 @@
                     <div class="mb-1 text-muted">{{ post.publicationDate | date }}</div>
                     <p class="card-text mb-auto"><p>{{ post.body | truncate(100) }}</p></p>
                     <a href="{{ path('blog_view_post', {'id': post.id, 'slug': post.slug}) }}">Continue reading</a>
-                    <a href="{{ path('blog_edit_post', {'postId': post.id}) }}">edit</a>
+                    {% if is_granted('edit', post) %}
+                        <a href="{{ path('blog_edit_post', {'postId': post.id}) }}">edit</a>
+                    {% else %}
+                        <a href="{{ path('blog_edit_post', {'postId': post.id}) }}"><strike>edit</strike></a>
+                    {% endif %}
                 </div>
             </div>
         </div>

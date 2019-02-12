@@ -6,7 +6,11 @@
                 <h2 class="blog-post-title">{{ post.title }}</h2>
                 <p class="blog-post-meta">{{ post.publicationDate | date }}</p>
                 <p>{{ post.body }}</p>
-                <a href="{{ path('blog_edit_post', {'postId': post.id}) }}">edit</a>
+                {% if is_granted('edit', post) %}
+                    <a href="{{ path('blog_edit_post', {'postId': post.id}) }}">edit</a>
+                {% else %}
+                    <a href="{{ path('blog_edit_post', {'postId': post.id}) }}"><strike>edit</strike></a>
+                {% endif %}
             </div><!-- /.blog-post -->
 
         </div><!-- /.blog-main -->
