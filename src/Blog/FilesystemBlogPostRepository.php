@@ -21,6 +21,12 @@ class FilesystemBlogPostRepository implements BlogPostRepository
         $this->commit();
     }
 
+    public function clear(): void
+    {
+        $this->posts = [];
+        $this->commit();
+    }
+
     public function getLatestPosts(): array
     {
         return $this->posts;
