@@ -33,6 +33,6 @@ class StudentsController extends Controller
 
     public function viewProfile(string $id, StudentRepository $studentRepository): Response
     {
-        return new Response(print_r($studentRepository->get($id), true));
+        return $this->render('students/profile.html.twig', ['student' => $studentRepository->get($id)]);
     }
 }

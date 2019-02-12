@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <dl>
+        <dt>First name</dt>
+        <dd>{{ student.firstName }}</dd>
+        <dt>Last name</dt>
+        <dd>{{ student.lastName }}</dd>
+        <dt>Uuid</dt>
+        <dd>{{ student.id }}</dd>
+    </dl>
+
+{% endblock %}
