@@ -46,7 +46,13 @@ class Job
      */
     private $publicationDate;
 
-    public function __construct(string $id, string $title, string $description, array $softSkills, array $hardSkills,
+    public static function publish(string $id, string $title, string $description, array $softSkills, array $hardSkills,
+        string $contractType, \DateTimeImmutable $publicationDate): self
+    {
+        return new static($id, $title, $description, $softSkills, $hardSkills, $contractType, $publicationDate);
+    }
+
+    private function __construct(string $id, string $title, string $description, array $softSkills, array $hardSkills,
         string $contractType, \DateTimeImmutable $publicationDate)
     {
         $this->id = $id;
