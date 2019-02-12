@@ -5,6 +5,7 @@
         "php": "^7.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ramsey/uuid": "^3.8",
         "symfony/console": "3.4.*",
         "symfony/dotenv": "3.4.*",
         "symfony/flex": "^1.1",
