@@ -6,7 +6,7 @@ security:
                 users:
                     bob:
                         password: plop
-                        roles: 'ROLE_USER'
+                        roles: 'ROLE_GUEST_STUDENT'
         students:
           id: Metinet\Students\FilesystemStudentRepository
         chain_provider:
@@ -38,3 +38,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/students/profile/.*, roles: ROLE_STUDENT }
+
+    role_hierarchy:
+        ROLE_GUEST_STUDENT: ROLE_STUDENT
+        ROLE_STUDENT: ROLE_USER

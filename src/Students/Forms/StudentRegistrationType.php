@@ -24,7 +24,7 @@ class StudentRegistrationType extends AbstractType
                 [
                     'constraints' => [
                         new Length(['min' => 3, 'max' =>  100])
-                    ]
+                    ],
                 ]
             )
             ->add('lastName', TextType::class)
@@ -37,11 +37,14 @@ class StudentRegistrationType extends AbstractType
                     ]
                 ]
             )
-            ->add('password', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'first_options'  => ['label' => 'Password'],
-                'second_options' => ['label' => 'Password confirmation'],
-            ])
+            ->add('password',
+                RepeatedType::class,
+                [
+                    'type' => PasswordType::class,
+                    'first_options'  => ['label' => 'Password'],
+                    'second_options' => ['label' => 'Password confirmation'],
+                ]
+            )
             ->add('yearOfEntry', TextType::class)
             ->add('Register', SubmitType::class)
         ;

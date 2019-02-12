@@ -14,14 +14,12 @@ class StudentsController extends Controller
 {
     public function register(Request $request, StudentRegistration $studentRegistration): Response
     {
-        $studentRegistrationDto = new StudentRegistrationDto();
-
-        $form = $this->createForm(StudentRegistrationType::class, $studentRegistrationDto);
+        $form = $this->createForm(StudentRegistrationType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $studentRegistration->register($form->getData());
+            $studentRegistrationDto = $form->getData();
+            $studentRegistration->register($studentRegistrationDto);
 
             return $this->redirectToRoute('students_view_profile', ['id' => $studentRegistrationDto->id]);
         }
