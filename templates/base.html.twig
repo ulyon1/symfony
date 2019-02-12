@@ -23,8 +23,9 @@
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <p>Welcome {{ app.user.firstName }}</p>
+                    <p>Welcome {{ app.user.firstName }} {{ app.user.firstName | truncate(1, false, '.')}} (<a href="{{ path('security_logout') }}">logout</a>)</p>
                 {% else %}
+                    <a class="btn btn-sm btn-outline-secondary" href="{{ path('security_login') }}">Login</a>
                     <a class="btn btn-sm btn-outline-secondary" href="{{ path('students_register') }}">Register</a>
                 {% endif %}
             </div>

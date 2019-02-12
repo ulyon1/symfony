@@ -40,3 +40,11 @@ blog_view_post:
     path: /blog/{slug}/{id}
     defaults:
         _controller: 'Metinet\Controller\BlogController::viewPost'
+
+security_login:
+    path: /login
+    defaults:
+        _controller: 'Metinet\Controller\SecurityController::login'
+
+security_logout:
+    path: /logout
