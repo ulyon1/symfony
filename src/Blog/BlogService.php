@@ -12,11 +12,13 @@ class BlogService
 {
     private $blogPostRepository;
     private $security;
+    private $slugGenerator;
 
-    public function __construct(BlogPostRepository $blogPostRepository, Security $security)
+    public function __construct(BlogPostRepository $blogPostRepository, SlugGenerator $slugGenerator, Security $security)
     {
         $this->blogPostRepository = $blogPostRepository;
         $this->security = $security;
+        $this->slugGenerator = $slugGenerator;
     }
 
     public function submit(NewPost $post): void
@@ -28,7 +30,7 @@ class BlogService
             $post->id,
             $post->title,
             $post->body,
-            $this->slugify($post->title),
+            $this->slugGenerator->slugify($post->title),
             new \DateTimeImmutable('now', new \DateTimeZone('UTC')),
             $currentLoggedInStudent->getId()
         );
@@ -45,14 +47,9 @@ class BlogService
             throw new AccessDeniedException();
         }
 
-        $blogPost->editTitle($editPost->title, $this->slugify($editPost->title));
+        $blogPost->editTitle($editPost->title, $this->slugGenerator->slugify($editPost->title));
         $blogPost->editBody($editPost->body);
 
         $this->blogPostRepository->save($blogPost);
-    }
-
-    private function slugify(string $title): string
-    {
-        return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title)));
     }
 }
