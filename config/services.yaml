@@ -34,3 +34,8 @@ services:
         arguments: ['%kernel.project_dir%/var/']
 
     Metinet\Students\StudentRepository: '@Metinet\Students\FilesystemStudentRepository'
+
+    Metinet\Blog\FilesystemBlogPostRepository:
+        arguments: ['%kernel.project_dir%/var/']
+
+    Metinet\Blog\BlogPostRepository: '@Metinet\Blog\FilesystemBlogPostRepository'

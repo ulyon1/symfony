@@ -38,6 +38,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/students/profile/.*, roles: ROLE_STUDENT }
+         - { path: ^/blog/new, roles: ROLE_STUDENT }
 
     role_hierarchy:
         ROLE_GUEST_STUDENT: ROLE_STUDENT
