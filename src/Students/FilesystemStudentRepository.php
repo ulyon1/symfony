@@ -2,15 +2,42 @@
 
 namespace Metinet\Students;
 
-class FilesystemStudentRepository implements StudentRepository
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
+
+class FilesystemStudentRepository implements StudentRepository, UserProviderInterface
 {
     private $path;
+    /** @var Student[] */
     private $students = [];
 
     public function __construct(string $dataPath)
     {
         $this->path = sprintf('%s/students.repository', $dataPath);
         $this->load();
+    }
+
+    public function loadUserByUsername($username)
+    {
+        foreach ($this->students as $student) {
+            if ($username === $student->getEmail()) {
+
+                return $student;
+            }
+        }
+
+        throw new UsernameNotFoundException(sprintf('User "%s" not found.', $username));
+    }
+
+    public function refreshUser(UserInterface $user)
+    {
+        return $this->loadUserByUsername($user->getUsername());
+    }
+
+    public function supportsClass($class): bool
+    {
+        return $class instanceof Student;
     }
 
     public function save(Student $student): void

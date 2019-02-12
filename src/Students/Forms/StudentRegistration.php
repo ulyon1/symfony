@@ -10,6 +10,7 @@ class StudentRegistration
     public $firstName;
     public $lastName;
     public $email;
+    public $password;
     public $yearOfEntry;
 
     public function __construct()
