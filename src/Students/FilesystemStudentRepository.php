@@ -15,6 +15,14 @@ class FilesystemStudentRepository implements StudentRepository
 
     public function save(Student $student): void
     {
+        foreach ($this->students as $existingStudent) {
+            if ($student->getEmail() === $existingStudent->getEmail()
+                && $student->getId() !== $existingStudent->getId()) {
+
+                throw new StudentEmailAlreadyExists();
+            }
+        }
+
         $this->students[$student->getId()] = $student;
 
         $this->commit();
