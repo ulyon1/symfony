@@ -6,7 +6,7 @@ class InMemoryStudentRepository implements StudentRepository
 {
     private $students = [];
 
-    public function get(int $id): Student
+    public function get(string $id): Student
     {
         return $this->students[$id];
     }

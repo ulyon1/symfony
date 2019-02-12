@@ -17,3 +17,10 @@ students_register:
     defaults:
         _controller: 'Metinet\Controller\StudentsController::register'
     methods: [GET,POST]
+
+students_view_profile:
+    path: /students/profile/{id}
+    defaults:
+        _controller: 'Metinet\Controller\StudentsController::viewProfile'
+    requirements:
+        id: '[0-9a-zA-Z\-]+'

@@ -10,21 +10,21 @@ final class Student
     private $email;
     private $yearOfEntry;
 
-    public static function register(string $firstName, string $lastName, string $email, string $yearOfEntry): self
+    public static function register(string $id, string $firstName, string $lastName, string $email, string $yearOfEntry): self
     {
-        return new static($firstName, $lastName, $email, $yearOfEntry);
+        return new static($id, $firstName, $lastName, $email, $yearOfEntry);
     }
 
-    private function __construct(string $firstName, string $lastName, string $email, string $yearOfEntry)
+    private function __construct(string $id, string $firstName, string $lastName, string $email, string $yearOfEntry)
     {
-        $this->id = random_int(1, 9999999);
+        $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
         $this->yearOfEntry = $yearOfEntry;
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

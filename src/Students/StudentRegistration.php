@@ -16,6 +16,7 @@ class StudentRegistration
     public function register(StudentRegistrationDto $studentRegistration): void
     {
         $student = Student::register(
+            $studentRegistration->id,
             $studentRegistration->firstName,
             $studentRegistration->lastName,
             $studentRegistration->email,

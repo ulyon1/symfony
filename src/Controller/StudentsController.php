@@ -5,6 +5,7 @@ namespace Metinet\Controller;
 use Metinet\Students\Forms\StudentRegistrationType;
 use Metinet\Students\Forms\StudentRegistration as StudentRegistrationDto;
 use Metinet\Students\StudentRegistration;
+use Metinet\Students\StudentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,11 +23,16 @@ class StudentsController extends Controller
 
             $studentRegistration->register($form->getData());
 
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('students_view_profile', ['id' => $studentRegistrationDto->id]);
         }
 
         return $this->render('students/register.html.twig', [
             'registerForm' => $form->createView()
         ]);
+    }
+
+    public function viewProfile(string $id, StudentRepository $studentRepository): Response
+    {
+        return new Response(print_r($studentRepository->get($id), true));
     }
 }
