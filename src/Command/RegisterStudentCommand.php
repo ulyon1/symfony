@@ -69,5 +69,7 @@ class RegisterStudentCommand extends Command
             [[$student->getId(), $student->getFirstName(), $student->getLastName(), $student->getEmail(),
                 $student->getPassword(), $student->getYearOfEntry()]]
         );
+
+        return 0;
     }
 }
