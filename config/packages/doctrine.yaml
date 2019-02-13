@@ -15,6 +15,8 @@ doctrine:
             collate: utf8mb4_unicode_ci
 
         url: '%env(resolve:DATABASE_URL)%'
+        types:
+          conference_time: 'Metinet\Doctrine\CustomTypes\ConferenceTimeType'
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -26,3 +28,9 @@ doctrine:
                 dir: '%kernel.project_dir%/src/JobBoard'
                 prefix: 'Metinet\JobBoard'
                 alias: JobBoard
+            Conference:
+              is_bundle: false
+              type: annotation
+              dir: '%kernel.project_dir%/src/Conferences'
+              prefix: 'Metinet\Conferences'
+              alias: Conferences
