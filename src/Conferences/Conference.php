@@ -5,7 +5,7 @@ namespace Metinet\Conferences;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Metinet\JobBoard\DoctrineJobRepository")
+ * @ORM\Entity(repositoryClass="Metinet\Conferences\DoctrineConferenceRepository")
  */
 class Conference
 {
