@@ -22,10 +22,11 @@ class NewPostType extends AbstractType
                     'constraints' => [
                         new Length(['min' => 3, 'max' =>  255])
                     ],
+                    'label' => 'blog_post_form.label.title'
                 ]
             )
-            ->add('body', TextareaType::class)
-            ->add('Submit', SubmitType::class)
+            ->add('body', TextareaType::class, ['label' => 'blog_post_form.label.body'])
+            ->add('Submit', SubmitType::class, ['label' => 'blog_post_form.button.submit'])
         ;
     }
 

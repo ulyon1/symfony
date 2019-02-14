@@ -1,16 +1,16 @@
-section.title.latest_post: 'Latest post'
-Submit: ''
-body: ''
-title: ''
-Password: ''
-'Password confirmation': ''
-Register: ''
-yearOfEntry: ''
-password: ''
-email: ''
-lastName: ''
-firstName: ''
-Login: ''
-_password: ''
-_username: ''
 'section.title.latest_post %numberOfPosts%': '{0} No blog post| {1} Only one blog post :(|]1,Inf[ %numberOfPosts% blog posts'
+blog_post_form.label.title: Title
+blog_post_form.label.body: Body
+blog_post_form.button.submit: Submit
+student_registration_form.label.firstName: 'First name'
+student_registration_form.label.lastName: 'Last name'
+student_registration_form.label.email: Email
+student_registration_form.label.password: Password
+student_registration_form.label.password_confirmation: Confirmation
+student_registration_form.label.year_of_entry: 'Year of entry'
+student_registration_form.button.submit: Register
+login_form.label.username: Email
+login_form.label.password: Password
+login_form.button.login: Login
+page.new_blog_post.section.title: Submit a new blog post
+page.register.section.title: Register as a student

@@ -1,0 +1,1 @@
+'student_registration_form.first_name.min_length %limit%': 'First name must be at least {{ limit }} chars'

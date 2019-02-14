@@ -1,1 +1,16 @@
 'section.title.latest_post %numberOfPosts%': '{0} Aucun article :(|{1} %numberOfPosts% seul article de blog :(| ]1,Inf[ %numberOfPosts% Article de blog'
+blog_post_form.label.title: Titre
+blog_post_form.label.body: Article
+blog_post_form.button.submit: Soumettre
+student_registration_form.label.firstName: Prénom
+student_registration_form.label.lastName: Nom
+student_registration_form.label.email: E-mail
+student_registration_form.label.password: 'Mot de passe'
+student_registration_form.label.password_confirmation: Confirmation
+student_registration_form.label.year_of_entry: Promo
+student_registration_form.button.submit: 'S''inscrire'
+login_form.label.username: E-mail
+login_form.label.password: 'Mot de passe'
+login_form.button.login: 'Se connecter'
+page.new_blog_post.section.title: Soumettre un article de blog
+page.register.section.title: S'inscrire en tant qu'étudiant

@@ -23,7 +23,7 @@ class BlogPostFixtures extends Fixture
 
         $faker = FakerFactory::create();
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 44; $i++) {
             $student = BlogPost::submit(
                 $faker->uuid,
                 $faker->sentence,

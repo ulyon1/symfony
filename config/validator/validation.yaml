@@ -1,8 +1,10 @@
-Metinet\Students\Forms\StudentRegistration:
+Metinet\App\Forms\StudentRegistration:
   properties:
     firstName:
       - Length:
           min: 3
           max: 100
+          minMessage: 'student_registration_form.first_name.min_length %limit%'
+          maxMessage: 'student_registration_form.first_name.max_length %limit%'
     email:
       - Email: ~
