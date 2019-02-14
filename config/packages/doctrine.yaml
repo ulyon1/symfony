@@ -26,11 +26,11 @@ doctrine:
                 is_bundle: false
                 type: annotation
                 dir: '%kernel.project_dir%/src/Domain/JobBoard'
-                prefix: 'Metinet\JobBoard'
+                prefix: 'Metinet\Domain\JobBoard'
                 alias: JobBoard
             Conference:
               is_bundle: false
               type: annotation
               dir: '%kernel.project_dir%/src/Domain/Conferences'
-              prefix: 'Metinet\Conferences'
+              prefix: 'Metinet\Domain\Conferences'
               alias: Conferences
