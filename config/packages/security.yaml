@@ -3,6 +3,9 @@ security:
         students:
           id: Metinet\Infrastructure\Repositories\FilesystemStudentRepository
 
+        api_key_user_provider:
+          id: Metinet\Infrastructure\Repositories\FilesystemStudentRepository
+
     encoders:
         Metinet\Domain\Students\Student: plaintext
 
@@ -10,6 +13,12 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        api:
+            pattern: ^/api
+            stateless: true
+            simple_preauth:
+                authenticator: Metinet\App\Security\ApiKeyAuthenticator
+            provider: api_key_user_provider
         main:
             anonymous: true
             provider: students
@@ -28,7 +37,9 @@ security:
          - { path: ^/students/profile/.*, roles: ROLE_STUDENT }
          - { path: ^/blog/new, roles: ROLE_STUDENT }
          - { path: ^/blog/edit/.*, roles: IS_AUTHENTICATED_FULLY }
+         - { path: ^/api/.*, roles: ROLE_STUDENT_WITH_API_KEY }
 
     role_hierarchy:
         ROLE_GUEST_STUDENT: ROLE_STUDENT
+        ROLE_STUDENT_WITH_API_KEY: ROLE_STUDENT
         ROLE_STUDENT: ROLE_USER

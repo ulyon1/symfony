@@ -2,6 +2,8 @@
 
 namespace Metinet\Infrastructure\Repositories;
 
+use Metinet\App\Security\ApiKeyUserProvider;
+use Metinet\Domain\Students\ApiKeyNotFound;
 use Metinet\Domain\Students\Student;
 use Metinet\Domain\Students\StudentEmailAlreadyExists;
 use Metinet\Domain\Students\StudentNotFound;
@@ -10,7 +12,7 @@ use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-class FilesystemStudentRepository implements StudentRepository, UserProviderInterface
+class FilesystemStudentRepository implements StudentRepository, UserProviderInterface, ApiKeyUserProvider
 {
     private $path;
     /** @var Student[] */
@@ -32,6 +34,18 @@ class FilesystemStudentRepository implements StudentRepository, UserProviderInte
         }
 
         throw new UsernameNotFoundException(sprintf('User "%s" not found.', $username));
+    }
+
+    public function getUsernameForApiKey(string $apiKey): string
+    {
+        foreach ($this->students as $student) {
+            if ($student->getApiKey() === $apiKey) {
+
+                return $student->getUsername();
+            }
+        }
+
+        throw new ApiKeyNotFound();
     }
 
     public function refreshUser(UserInterface $user)

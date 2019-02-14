@@ -13,6 +13,7 @@ final class Student implements UserInterface
     private $yearOfEntry;
     private $encodedPassword;
     private $salt;
+    private $apiKey;
 
     public static function register(string $id, string $firstName, string $lastName,
         string $encodedPassword, string $salt, string $email, string $yearOfEntry): self
@@ -57,9 +58,34 @@ final class Student implements UserInterface
         return $this->yearOfEntry;
     }
 
+    public function resetApiKey(): void
+    {
+        $this->apiKey = null;
+    }
+
+    public function createApiKey(string $key): void
+    {
+        if ($this->apiKey) {
+
+            throw CannotCreateApiKey::anApiKeyAlreadyExists();
+        }
+
+        $this->apiKey = $key;
+    }
+
+    public function getApiKey(): ?string
+    {
+        return $this->apiKey;
+    }
+
     public function getRoles(): array
     {
-        return ['ROLE_STUDENT'];
+        $roles = ['ROLE_STUDENT'];
+        if ($this->apiKey) {
+            $roles[] = 'ROLE_STUDENT_WITH_API_KEY';
+        }
+
+        return $roles;
     }
 
     public function getPassword()

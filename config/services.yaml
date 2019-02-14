@@ -39,3 +39,7 @@ services:
         arguments: ['%kernel.project_dir%/var/']
 
     Metinet\Domain\Blog\BlogPostRepository: '@Metinet\Infrastructure\Repositories\FilesystemBlogPostRepository'
+
+    Metinet\App\Api\ApiExceptionKernelListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
