@@ -15,3 +15,5 @@ framework:
         log: true
 
     validation: { enabled: true }
+
+    serializer: { enabled: true }
