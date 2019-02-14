@@ -28,6 +28,8 @@
                     <a class="btn btn-sm btn-outline-secondary" href="{{ path('security_login') }}">Login</a>
                     <a class="btn btn-sm btn-outline-secondary" href="{{ path('students_register') }}">Register</a>
                 {% endif %}
+                <a class="btn btn-sm btn-outline-secondary" href="{{ path('translations_set_locale', {'locale': 'fr_FR'}) }}">FR</a>
+                <a class="btn btn-sm btn-outline-secondary" href="{{ path('translations_set_locale', {'locale': 'en_US'}) }}">EN</a>
             </div>
         </div>
     </header>

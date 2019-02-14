@@ -43,3 +43,8 @@ services:
     Metinet\App\Api\ApiExceptionKernelListener:
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
+
+    Metinet\App\Translations\SetLocaleKernelListener:
+        arguments: ['%kernel.default_locale%']
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, priority: 10 }

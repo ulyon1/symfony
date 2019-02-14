@@ -59,3 +59,8 @@ api_conferences_latest:
     path: /api/conferences
     defaults:
         _controller: 'Metinet\App\Controller\Api\ConferencesController::latestConferences'
+
+translations_set_locale:
+    path: /locale/{locale}
+    defaults:
+        _controller: 'Metinet\App\Controller\Web\IntlController:setLocale'
