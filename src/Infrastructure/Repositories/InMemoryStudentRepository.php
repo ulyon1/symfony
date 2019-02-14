@@ -2,8 +2,8 @@
 
 namespace Metinet\Infrastructure\Repositories;
 
-use Metinet\Students\Student;
-use Metinet\Students\StudentRepository;
+use Metinet\Domain\Students\Student;
+use Metinet\Domain\Students\StudentRepository;
 
 class InMemoryStudentRepository implements StudentRepository
 {
