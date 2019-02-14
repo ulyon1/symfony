@@ -7,7 +7,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory as FakerFactory;
 use Faker\Generator;
 use Faker\Provider\Base as FakerProvider;
-use Metinet\JobBoard\Job;
+use Metinet\Domain\JobBoard\Job;
 
 class JobFixtures extends Fixture
 {

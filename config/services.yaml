@@ -23,19 +23,19 @@ services:
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    Metinet\Controller\:
-        resource: '../src/Controller'
+    Metinet\App\Controller\:
+        resource: '../src/App/Controller/'
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    Metinet\Students\FilesystemStudentRepository:
+    Metinet\Infrastructure\Repositories\FilesystemStudentRepository:
         arguments: ['%kernel.project_dir%/var/']
 
-    Metinet\Students\StudentRepository: '@Metinet\Students\FilesystemStudentRepository'
+    Metinet\Domain\Students\StudentRepository: '@Metinet\Infrastructure\Repositories\FilesystemStudentRepository'
 
-    Metinet\Blog\FilesystemBlogPostRepository:
+    Metinet\Infrastructure\Repositories\FilesystemBlogPostRepository:
         arguments: ['%kernel.project_dir%/var/']
 
-    Metinet\Blog\BlogPostRepository: '@Metinet\Blog\FilesystemBlogPostRepository'
+    Metinet\Domain\Blog\BlogPostRepository: '@Metinet\Infrastructure\Repositories\FilesystemBlogPostRepository'

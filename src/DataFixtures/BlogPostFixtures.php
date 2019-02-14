@@ -5,8 +5,8 @@ namespace Metinet\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory as FakerFactory;
-use Metinet\Blog\BlogPost;
-use Metinet\Blog\BlogPostRepository;
+use Metinet\Domain\Blog\BlogPost;
+use Metinet\Domain\Blog\BlogPostRepository;
 
 class BlogPostFixtures extends Fixture
 {

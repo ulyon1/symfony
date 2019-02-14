@@ -4,17 +4,16 @@ namespace Metinet\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
 use Faker\Factory as FakerFactory;
-use Metinet\Conferences\Conference;
-use Metinet\Conferences\ConferenceDetails;
-use Metinet\Conferences\Date;
-use Metinet\Conferences\Location;
-use Metinet\Conferences\PostalAddress;
-use Metinet\Conferences\Price;
-use Metinet\Conferences\RegistrationRule;
-use Metinet\Conferences\Time;
-use Metinet\Conferences\TimeSlot;
+use Metinet\Domain\Conferences\Conference;
+use Metinet\Domain\Conferences\ConferenceDetails;
+use Metinet\Domain\Conferences\Date;
+use Metinet\Domain\Conferences\Location;
+use Metinet\Domain\Conferences\PostalAddress;
+use Metinet\Domain\Conferences\Price;
+use Metinet\Domain\Conferences\RegistrationRule;
+use Metinet\Domain\Conferences\Time;
+use Metinet\Domain\Conferences\TimeSlot;
 use Ramsey\Uuid\Uuid;
 
 class ConferenceFixtures extends Fixture

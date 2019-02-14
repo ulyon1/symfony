@@ -1,6 +1,6 @@
 <?php
 
-use Metinet\Kernel;
+use Metinet\App\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 

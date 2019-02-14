@@ -16,7 +16,7 @@ doctrine:
 
         url: '%env(resolve:DATABASE_URL)%'
         types:
-          conference_time: 'Metinet\Doctrine\CustomTypes\ConferenceTimeType'
+          conference_time: 'Metinet\Infrastructure\Doctrine\CustomTypes\ConferenceTimeType'
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -25,12 +25,12 @@ doctrine:
             JobBoard:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/JobBoard'
+                dir: '%kernel.project_dir%/src/Domain/JobBoard'
                 prefix: 'Metinet\JobBoard'
                 alias: JobBoard
             Conference:
               is_bundle: false
               type: annotation
-              dir: '%kernel.project_dir%/src/Conferences'
+              dir: '%kernel.project_dir%/src/Domain/Conferences'
               prefix: 'Metinet\Conferences'
               alias: Conferences

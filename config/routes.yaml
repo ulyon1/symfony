@@ -3,54 +3,54 @@
 
 homepage:
     path: /
-    defaults: { _controller: 'Metinet\Controller\HomeController::index' }
+    defaults: { _controller: 'Metinet\App\Controller\Web\HomeController::index' }
 
 hello:
     path: /hello/{name}
     defaults:
-        _controller: 'Metinet\Controller\HomeController::hello'
+        _controller: 'Metinet\App\Controller\Web\omeController::hello'
     requirements:
         name: '[a-zA-Z]+'
 
 students_register:
     path: /students/register
     defaults:
-        _controller: 'Metinet\Controller\StudentsController::register'
+        _controller: 'Metinet\App\Controller\Web\StudentsController::register'
     methods: [GET,POST]
 
 students_view_profile:
     path: /students/profile/{id}
     defaults:
-        _controller: 'Metinet\Controller\StudentsController::viewProfile'
+        _controller: 'Metinet\App\Controller\Web\StudentsController::viewProfile'
     requirements:
         id: '[0-9a-zA-Z\-]+'
 
 blog_latest_posts:
     path: /blog
     defaults:
-        _controller: 'Metinet\Controller\BlogController::latestPosts'
+        _controller: 'Metinet\App\Controller\Web\BlogController::latestPosts'
 
 blog_new_post:
     path: /blog/new
     defaults:
-        _controller: 'Metinet\Controller\BlogController::newPost'
+        _controller: 'Metinet\App\Controller\Web\BlogController::newPost'
     methods: [GET,POST]
 
 blog_edit_post:
     path: /blog/edit/{postId}
     defaults:
-        _controller: 'Metinet\Controller\BlogController::editPost'
+        _controller: 'Metinet\App\Controller\Web\BlogController::editPost'
     methods: [GET,POST]
 
 blog_view_post:
     path: /blog/{slug}/{id}
     defaults:
-        _controller: 'Metinet\Controller\BlogController::viewPost'
+        _controller: 'Metinet\App\Controller\Web\BlogController::viewPost'
 
 security_login:
     path: /login
     defaults:
-        _controller: 'Metinet\Controller\SecurityController::login'
+        _controller: 'Metinet\App\Controller\Web\SecurityController::login'
 
 security_logout:
     path: /logout

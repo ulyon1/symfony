@@ -1,10 +1,10 @@
 security:
     providers:
         students:
-          id: Metinet\Students\FilesystemStudentRepository
+          id: Metinet\Infrastructure\Repositories\FilesystemStudentRepository
 
     encoders:
-        Metinet\Students\Student: plaintext
+        Metinet\Domain\Students\Student: plaintext
 
     firewalls:
         dev:
