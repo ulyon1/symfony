@@ -54,3 +54,8 @@ security_login:
 
 security_logout:
     path: /logout
+
+api_conferences_latest:
+    path: /api/conferences
+    defaults:
+        _controller: 'Metinet\App\Controller\Api\ConferencesController::latestConferences'
