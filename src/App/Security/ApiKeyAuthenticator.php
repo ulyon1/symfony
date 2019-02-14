@@ -7,6 +7,7 @@ use Metinet\App\Api\HttpError;
 use Metinet\Domain\Students\ApiKeyNotFound;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
@@ -90,7 +91,7 @@ class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface, Authentica
     {
         $error = new HttpError(
             new Error(strtr($exception->getMessageKey(), $exception->getMessageData())),
-            401
+            Response::HTTP_UNAUTHORIZED
         );
 
         return JsonResponse::fromJsonString($this->serializer->serialize($error, 'json'), $error->getHttpStatusCode());
