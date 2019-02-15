@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 .PHONY: help
-.PHONY: refresh clean
+.PHONY: refresh clean tests
 
 
 help:
@@ -17,3 +17,6 @@ refresh: clean ## Clean project and start a fresh project (with new fixtures)
 	composer install || php composer.phar install
 	php bin/console doctrine:migrations:migrate -n
 	php bin/console doctrine:fixtures:load -n
+
+tests:
+	php bin/simple-phpunit
