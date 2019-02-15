@@ -16,9 +16,6 @@ class SetLocaleKernelListener
     public function onKernelRequest(GetResponseEvent $event): void
     {
         $request = $event->getRequest();
-        if ($locale = $request->query->get('locale')) {
-            $request->setLocale($locale);
-        }
 
         $request->setLocale($request->getSession()->get('_locale', $this->defaultLocale));
     }
